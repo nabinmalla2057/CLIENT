@@ -5,6 +5,10 @@ const app = express();
 const port = +process.env.PORT || 3000;
 const indexRouter = require("./routes");
 
+mongoose.connect().then(() => {
+  console.log("Database connected...");
+});
+
 app.use(express.json());
 
 app.use("/", indexRouter);
