@@ -3,7 +3,7 @@ const Controller = require("./subtask.controller");
 
 router.post("/:id", async (req, res, next) => {
   try {
-    const { title } = req.body;
+    const { title, todo } = req.body;
     if (!title) throw new Error("Title is missing..");
     const result = await Controller.create({ title });
     res.json({ data: result, msg: "success" });
